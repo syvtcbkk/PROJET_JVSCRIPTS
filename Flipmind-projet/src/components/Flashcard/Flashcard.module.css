@@ -1,0 +1,116 @@
+/* ─── Scène 3D ───────────────────────────────────────────────────────────────── */
+.scene {
+  width: 100%;
+  max-width: 520px;
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ─── Carte (les deux faces) ─────────────────────────────────────────────────── */
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.45, 0, 0.55, 1);
+  border-radius: 20px;
+}
+
+/* Retournement ─────────────────────────────────────────────────────────────── */
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Classe utilitaire exportée par le module CSS pour l'état retourné */
+.flipped {
+  transform: rotateY(180deg);
+}
+
+/* ─── Face commune ────────────────────────────────────────────────────────────── */
+.face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 1rem;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  user-select: none;
+}
+
+/* ─── Recto (Question) ────────────────────────────────────────────────────────── */
+.front {
+  background: linear-gradient(
+    145deg,
+    rgba(99, 102, 241, 0.25) 0%,
+    rgba(30, 41, 59, 0.9) 60%
+  );
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+/* ─── Verso (Réponse) ─────────────────────────────────────────────────────────── */
+.back {
+  background: linear-gradient(
+    145deg,
+    rgba(16, 185, 129, 0.2) 0%,
+    rgba(30, 41, 59, 0.9) 60%
+  );
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  backdrop-filter: blur(12px);
+  transform: rotateY(180deg);
+}
+
+/* ─── Label Question / Réponse ────────────────────────────────────────────────── */
+.label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  align-self: flex-start;
+}
+
+/* ─── Texte principal ─────────────────────────────────────────────────────────── */
+.text {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ─── Hint de retournement ────────────────────────────────────────────────────── */
+.flipHint {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.25);
+  align-self: flex-end;
+  margin-top: auto;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Hover ──────────────────────────────────────────────────────────────────── */
+.scene:hover .card:not(.flipped) {
+  transform: rotateY(8deg) scale(1.01);
+}
+
+.scene:hover .card.flipped {
+  transform: rotateY(172deg) scale(1.01);
+}
+
+/* ─── Focus visible (accessibilité) ─────────────────────────────────────────── */
+.scene:focus-visible .card {
+  box-shadow:
+    0 0 0 3px #6366f1,
+    0 20px 60px rgba(0, 0, 0, 0.4);
+}
