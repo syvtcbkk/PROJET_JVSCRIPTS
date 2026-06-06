@@ -1,13 +1,16 @@
+import React from 'react';
 import styles from './PackCard.module.css';
 
 interface PackCardProps {
+  id?: number;
   title: string;
   description: string;
   cardCount: number;
   onStartQuiz: () => void;
 }
 
-export default function PackCard({ title, description, cardCount, onStartQuiz }: PackCardProps) {
+const PackCard: React.FC<PackCardProps> = (props: PackCardProps) => {
+  const { title, description, cardCount, onStartQuiz } = props;
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
@@ -24,4 +27,6 @@ export default function PackCard({ title, description, cardCount, onStartQuiz }:
       </button>
     </div>
   );
-}
+};
+
+export default PackCard;

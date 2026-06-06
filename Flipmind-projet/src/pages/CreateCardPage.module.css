@@ -1,0 +1,63 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.75rem 0;
+}
+
+.description {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.progressSection {
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+}
+
+.cardInputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .cardInputs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: flex-end;
+}
+
+.actions button {
+  flex: 0 0 auto;
+}

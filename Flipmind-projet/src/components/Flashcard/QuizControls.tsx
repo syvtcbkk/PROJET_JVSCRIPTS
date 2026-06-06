@@ -1,14 +1,12 @@
 import React from "react";
 import styles from "./QuizControls.module.css";
 
-// ─── Props ─────────────────────────────────────────────────────────────────────
 interface QuizControlsProps {
   onNext: () => void;
   isLast: boolean;
-  isFlipped: boolean; // on peut griser le bouton tant que la carte n'est pas retournée
+  isFlipped: boolean;
 }
 
-// ─── Composant ─────────────────────────────────────────────────────────────────
 const QuizControls: React.FC<QuizControlsProps> = (props: QuizControlsProps) => {
   const { onNext, isLast, isFlipped } = props;
 
