@@ -5,7 +5,14 @@
     "express": "^5.2.1",
     "mysql2": "^3.22.5"
   },
+  "name": "flashcard-app",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "concurrently": "^8.0.0"
   }
+
 }
